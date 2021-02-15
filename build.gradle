@@ -1,8 +1,10 @@
 ext {
     libraries = [
-            'netty'  : '4.1.52.Final',
-            'hessian': '4.0.63',
-            'slf4j'  : '1.7.30'
+            netty    : '4.1.52.Final',
+            hessian  : '4.0.63',
+            slf4j    : '1.7.30',
+            javassist: '3.26.0-GA',
+            logback  : '1.2.3'
     ]
 }
 

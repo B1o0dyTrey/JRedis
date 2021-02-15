@@ -1,4 +1,5 @@
 rootProject.name = 'JRedis'
 include 'core'
 include 'client'
+include 'server'
 

@@ -1,7 +1,6 @@
 package com.github.bdqfork.core.serializtion;
 
-import com.github.bdqfork.core.exception.FailedDeserializeException;
-import com.github.bdqfork.core.exception.FailedSerializeException;
+import com.github.bdqfork.core.exception.SerializeException;
 
 import java.io.*;
 
@@ -11,24 +10,24 @@ import java.io.*;
  */
 public class JdkSerializer implements Serializer {
     @Override
-    public byte[] serialize(Object instance) throws FailedSerializeException {
+    public byte[] serialize(Object instance) throws SerializeException {
         try (ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
              ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream)) {
             objectOutputStream.writeObject(instance);
             objectOutputStream.flush();
             return byteArrayOutputStream.toByteArray();
         } catch (IOException e) {
-            throw new FailedSerializeException(e);
+            throw new SerializeException(e);
         }
     }
 
     @Override
-    public Object deserialize(byte[] bytes, Class<?> clazz) throws FailedDeserializeException {
+    public Object deserialize(byte[] bytes, Class<?> clazz) throws SerializeException {
         try (ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bytes);
              ObjectInputStream objectInputStream = new ObjectInputStream(byteArrayInputStream)) {
             return objectInputStream.readObject();
         } catch (Exception e) {
-            throw new FailedDeserializeException(e);
+            throw new SerializeException(e);
         }
     }
 }

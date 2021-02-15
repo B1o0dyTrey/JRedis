@@ -1,3 +1,12 @@
 .idea
 .gradle
 build
+*.log
+bin
+
+.project
+.classpath
+.settings
+.vscode
+./backup
+logs

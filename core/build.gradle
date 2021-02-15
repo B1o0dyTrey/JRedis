@@ -1,5 +1,5 @@
 plugins {
-    id 'java'
+    id 'java-library'
 }
 
 sourceCompatibility = 1.8
@@ -17,10 +17,11 @@ repositories {
 }
 
 dependencies {
-    implementation "io.netty:netty-all:${libs.netty}"
-    implementation "com.caucho:hessian:${libs.hessian}"
-    implementation "org.slf4j:slf4j-api:${libs.slf4j}"
-
+    api "io.netty:netty-all:${libs.netty}"
+    api "com.caucho:hessian:${libs.hessian}"
+    api "org.slf4j:slf4j-api:${libs.slf4j}"
+    api "org.javassist:javassist:${libs.javassist}"
+    api "ch.qos.logback:logback-classic:${libs.logback}"
 
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }

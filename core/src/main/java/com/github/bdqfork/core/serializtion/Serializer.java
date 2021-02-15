@@ -1,7 +1,6 @@
 package com.github.bdqfork.core.serializtion;
 
-import com.github.bdqfork.core.exception.FailedDeserializeException;
-import com.github.bdqfork.core.exception.FailedSerializeException;
+import com.github.bdqfork.core.exception.SerializeException;
 
 /**
  * @author bdq
@@ -9,7 +8,7 @@ import com.github.bdqfork.core.exception.FailedSerializeException;
  */
 public interface Serializer {
 
-    byte[] serialize(Object instance) throws FailedSerializeException;
+    byte[] serialize(Object instance) throws SerializeException;
 
-    Object deserialize(byte[] bytes, Class<?> clazz) throws FailedDeserializeException;
+    Object deserialize(byte[] bytes, Class<?> clazz) throws SerializeException;
 }
